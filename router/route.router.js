@@ -3,27 +3,6 @@ const User = require('../models/user.model')
 const bcrypt = require('bcryptjs')
 const MiddlewareAuth = require("../middleware/authenticate.middleware")
 
-router.get('/', (req,res)=> {
-    res.status(200).json({response: "This is Home Page"});
-})
-
-router.get('/about', MiddlewareAuth ,(req,res)=> {
-    res.send(req.rootUser);
-    res.status(200).json({response: "This is About Page"});
-})
-
-router.get('/contact', (req,res)=> {
-    res.status(200).json({response: "This is Contact Page"});
-})
-
-router.get('/login', (req,res)=> {
-    res.status(200).json({response: "This is Login Page"})
-})
-
-router.get('/signup', (req,res)=>{
-    res.status(200).json({response: "This is Signup Page"})
-})
-
 router.post('/signup',async (req,res)=>{
     const { name, email, contact, password, cpassword } = req.body;
 
